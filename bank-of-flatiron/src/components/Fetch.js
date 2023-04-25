@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import EditableRow from './Editable Row';
-// import TransactionForm from './TransactionAdd';
 
 function Fetch() {
 
@@ -14,22 +13,18 @@ function Fetch() {
 
    // Initiates our fetch request
        useEffect(() => {
-    fetch("http://localhost:3000/transactions")
+    fetch('http://localhost:3000/transactions')
       .then((res) => res.json())
       .then((transactions) => setTransactions(transactions));
   }, []);
 
 
-// function TransactionForm(newTransaction) {
-//     setTransactions([...transactions, newTransaction]);
-//   }
 
 
   return (
     <>
     <div>
-
-        {/* <TransactionForm onAddTransaction={TransactionForm} /> */}
+           <h1>BANK OF FLATIRON</h1>
      
      <input type='text' placeholder='Search' onChange = {e => setQuery(e.target.value)} /> 
     <table>
@@ -52,11 +47,6 @@ function Fetch() {
             <td>{val.description}</td>
             <td>{val.category}</td>
             <td>{val.amount}</td>
-            
-
- 
-
-
             <td><button type='SUBMIT'>EDIT</button>
             <button type='EDIT'>REMOVE</button></td>
           </tr>
@@ -64,10 +54,12 @@ function Fetch() {
       </tbody>
     </table>
     </div>
+   
+
 
 
     <div>
-    <form>
+    <form className='FORM1'>
          <input type='date' name='date' placeholder='date' /> 
         <input type='text' name='description' placeholder='description' /> 
          <input type='category' name='text' placeholder='category' /> 
@@ -81,11 +73,21 @@ function Fetch() {
             </ul>
              */}
             </form>
-            </div> 
-            </>)
+          </div>
+</>
+              )
+            };
+               
+               
+     
+
+
+             
+
+
+
+
 
          
- 
-}
 
 export default Fetch;
