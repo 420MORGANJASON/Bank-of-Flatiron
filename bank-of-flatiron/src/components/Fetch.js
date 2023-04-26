@@ -65,13 +65,7 @@ function Fetch() {
          <input type='category' name='text' placeholder='category' /> 
           <input type='amount' name='number' placeholder='amount' /> 
           <button type='Submit'>SUBMIT</button>
-            {/* <ul>
-            <li>HOME</li>
-            <li>ABOUT US</li>
-            <li>CONTACT</li>
-            <li>FOR MORE INFO</li>
-            </ul>
-             */}
+         
             </form>
           </div>
 </>
