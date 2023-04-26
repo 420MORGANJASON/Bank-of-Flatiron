@@ -13,7 +13,7 @@ function Fetch() {
 
    // Initiates our fetch request
        useEffect(() => {
-    fetch('http://localhost:3000/transactions')
+    fetch('https://my-json-server.typicode.com/420MORGANJASON/Bank-of-Flatiron1/transactions')
       .then((res) => res.json())
       .then((transactions) => setTransactions(transactions));
   }, []);
