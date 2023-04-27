@@ -72,5 +72,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <<<<<<< HEAD
 
 =======
->>>>>>> d7150d0 (added deploying link)
-(https://bank-of-flatiron-lwsd.vercel.app/)
+
+<!-- >>>>>>> d7150d0 (added deploying link)
+(https://bank-of-flatiron-hiuv.vercel.app/) -->
+
+https://bank-of-flatiron-hiuv.vercel.app/
+
