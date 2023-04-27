@@ -6,9 +6,33 @@ import EditableRow from './Editable Row';
 function Fetch() {
 
     const [selectedCategory, setSelectedCategory] = useState("All");
-  const [transactions, setTransactions] = useState([]);
   const [query, setQuery] = useState("");
-   
+   const [val,setValue]=useState([]);
+   const [transactions, setTransactions] = useState([]) (  
+  { id: 1, date: '2022-04-01', description: 'Rent', category: 'Housing', amount: 1000 },
+  { id: 2, date: '2022-04-02', description: 'Groceries', category: 'Food', amount: 200 },)
+  // add more transactions here
+
+   }
+
+
+  const handleSubmit = (event) => {
+  event.preventDefault(); // prevent the default form submission behavior
+
+  // get the form input values
+  const date = event.target.date.value;
+  const description = event.target.description.value;
+  const category = event.target.category.value;
+  const amount = event.target.amount.value;
+
+  // create a new transaction object with the input values and a new unique id
+  const newTransaction = {
+    id: transactions.length + 1,
+    date,
+    description,
+    category,
+    amount,
+  };
 
 
    // Initiates our fetch request
@@ -20,13 +44,19 @@ function Fetch() {
 
 
 
+  // add the new transaction object to the transactions array
+  setTransactions([...transactions, newTransaction]);
+
+  // reset the form inputs
+  event.target.reset();
+
 
   return (
     <>
     <div>
            <h1>BANK OF FLATIRON</h1>
      
-     <input type='text' placeholder='Search' onChange = {e => setQuery(e.target.value)} /> 
+     <input type='text' placeholder='Search'/> 
     <table>
       <thead>
         <tr>
@@ -40,17 +70,17 @@ function Fetch() {
         </tr>
       </thead>
       <tbody>
-        {transactions.filter(transaction => transaction.description.toLowerCase().includes(query)).map((val) => (
-          <tr key={val.id}>
-            <td>{val.id}</td>
-            <td>{val.date}</td>
-            <td>{val.description}</td>
-            <td>{val.category}</td>
-            <td>{val.amount}</td>
+        {transactions.filter(transaction => transaction.description.toLowerCase().map((transaction) => (
+          <tr key={transaction.id}>
+            <td>{transaction.id}</td>
+            <td>{transaction.date}</td>
+            <td>{transaction.description}</td>
+            <td>{transaction.category}</td>
+            <td>{transaction.amount}</td>
             <td><button type='SUBMIT'>EDIT</button>
             <button type='EDIT'>REMOVE</button></td>
           </tr>
-        ))}
+        )))}
       </tbody>
     </table>
     </div>
@@ -59,7 +89,7 @@ function Fetch() {
 
 
     <div>
-    <form className='FORM1'>
+    <form className='FORM1'  onSubmit={handleSubmit}>
          <input type='date' name='date' placeholder='date' /> 
         <input type='text' name='description' placeholder='description' /> 
          <input type='category' name='text' placeholder='category' /> 
